@@ -46,7 +46,6 @@ Modem has three roles with different permission levels:
 
 Full control over the organization:
 - All admin permissions
-- Manage billing and subscription
 - Delete the organization
 - Change domain and auto-join settings
 - Cannot be removed (except by another owner)
@@ -61,7 +60,7 @@ Can manage team and settings:
 - Invite and remove members
 - Update organization name and slug
 - Enable/disable GitHub and Slack auto-join
-- Cannot change billing or delete the organization
+- Cannot delete the organization
 
 ### Member
 
@@ -148,36 +147,11 @@ If you belong to multiple organizations:
 
 Each organization is completely separate: data, integrations, and settings don't overlap.
 
-## Billing
-
-Billing is managed at the organization level.
-
-### Plans
-
-| Plan | Included |
-|------|----------|
-| **Free** | 5,000 events/month, 1 user, 30-day history |
-| **Pro** | 100,000 events/month, unlimited users, 90-day history |
-| **Business** | 1,000,000 events/month, unlimited users, 180-day history |
-
-### Managing Billing
-
-Owners can manage billing:
-
-1. Go to **Settings** → **Billing**
-2. View current plan and usage
-3. Click **Manage Billing** to access the billing portal
-
-From the billing portal you can:
-- Upgrade or downgrade your plan
-- Update payment method
-- View invoices and billing history
-
 ## Best Practices
 
 <AccordionGroup>
   <Accordion title="Use appropriate roles">
-    Not everyone needs to be an admin. Give members the minimum role they need. Reserve owner for people who need billing access or full control.
+    Not everyone needs to be an admin. Give members the minimum role they need. Reserve owner for people who need full control.
   </Accordion>
   <Accordion title="Enable auto-join for your team">
     If everyone at your company should have access, enable email domain auto-join. It reduces invitation overhead and ensures no one is blocked from accessing feedback.
