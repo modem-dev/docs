@@ -51,18 +51,12 @@
         ]
       },
       {
-        "group": "Developers",
-        "pages": [
-          "developers/mcp"
-        ]
-      },
-      {
         "group": "Features",
         "pages": [
           "features/ai-analysis",
           "features/technical-crm",
           "features/agent",
-          "features/scheduled-tasks"
+          "features/tasks"
         ]
       },
       {
