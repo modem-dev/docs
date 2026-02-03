@@ -2,12 +2,25 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Modem",
+  "description": "Documentation for Modem, the agentic product teammate that aggregates feedback from Slack, Discord, GitHub, and email into actionable insights.",
   "colors": {
     "primary": "#44BDA3",
     "light": "#5FCDB3",
     "dark": "#3AA78E"
   },
   "favicon": "/favicon.svg",
+  "css": "/custom.css",
+  "typography": {
+    "headings": {
+      "family": "unit",
+      "weight": 500,
+      "url": "https://use.typekit.net/vuf3cyd.css"
+    },
+    "body": {
+      "family": "Roboto",
+      "weight": 400
+    }
+  },
   "navigation": {
     "groups": [
       {

@@ -1,0 +1,24 @@
+/* Custom typography to match modem.dev */
+
+/* Headings */
+h1, h2, h3, h4 {
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  line-height: 1.2;
+}
+
+h2 {
+  line-height: 1.3;
+}
+
+h3 {
+  line-height: 1.4;
+}
+
+/* Body text */
+p, li {
+  letter-spacing: -0.01em;
+  line-height: 1.7;
+}
