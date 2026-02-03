@@ -4,7 +4,9 @@
   "name": "Modem",
   "description": "Documentation for Modem, the agentic product teammate that aggregates feedback from Slack, Discord, GitHub, and email into actionable insights.",
   "colors": {
-    "primary": "#079D7D"
+    "primary": "#079D7D",
+    "light": "#079D7D",
+    "dark": "#079D7D"
   },
   "background": {
     "color": {
