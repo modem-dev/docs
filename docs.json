@@ -10,11 +10,10 @@
   },
   "favicon": "/favicon.svg",
   "css": "/custom.css",
-  "typography": {
-    "headings": {
+  "fonts": {
+    "heading": {
       "family": "unit",
-      "weight": 500,
-      "url": "https://use.typekit.net/vuf3cyd.css"
+      "weight": 500
     },
     "body": {
       "family": "Roboto",
