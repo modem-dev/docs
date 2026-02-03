@@ -11,9 +11,9 @@ Modem uses AI throughout the platform to transform raw messages into structured,
 
 Modem automatically discovers conversation themes across your data sources:
 
-- **Semantic clustering** — Messages with similar meaning are grouped together, even if they use different words
-- **Cross-source correlation** — A Slack discussion and a GitHub issue about the same problem are connected
-- **Temporal awareness** — Conversations about the same topic at different times are recognized
+- **Semantic clustering.** Messages with similar meaning are grouped together, even if they use different words.
+- **Cross-source correlation.** A Slack discussion and a GitHub issue about the same problem are connected.
+- **Temporal awareness.** Conversations about the same topic at different times are recognized.
 
 <Info>
   Topic discovery happens continuously as new messages arrive. You don't need to configure or train anything.
@@ -23,9 +23,9 @@ Modem automatically discovers conversation themes across your data sources:
 
 Within channels, Modem identifies where one conversation ends and another begins:
 
-- **Context switching** — When the discussion shifts to a new subject
-- **Time gaps** — Extended pauses between messages suggest new conversations
-- **Participant changes** — Different people joining often signals topic shifts
+- **Context switching.** When the discussion shifts to a new subject.
+- **Time gaps.** Extended pauses between messages suggest new conversations.
+- **Participant changes.** Different people joining often signals topic shifts.
 
 This segmentation creates meaningful conversation groups within topics.
 
@@ -47,9 +47,9 @@ Classification considers both content and context for accuracy.
 
 Modem generates summaries at multiple levels:
 
-- **Topic summaries** — What a topic is about, key themes, main concerns
-- **Group summaries** — What each conversation segment covers
-- **Trend summaries** — Patterns across time periods
+- **Topic summaries.** What a topic is about, key themes, main concerns.
+- **Group summaries.** What each conversation segment covers.
+- **Trend summaries.** Patterns across time periods.
 
 These summaries save you from reading every message to understand what's happening.
 
@@ -57,7 +57,7 @@ These summaries save you from reading every message to understand what's happeni
 
 ### Vector Embeddings
 
-When a message arrives, it's converted into a **vector embedding**—a numerical representation that captures its meaning:
+When a message arrives, it's converted into a **vector embedding**, a numerical representation that captures its meaning:
 
 ```
 "The export button doesn't work on Safari"
@@ -99,7 +99,7 @@ Summary Updates (if needed)
 Available in Dashboard
 ```
 
-This happens in near real-time—messages typically appear in your dashboard within seconds.
+This happens in near real-time. Messages typically appear in your dashboard within seconds.
 
 ## Accuracy and Confidence
 
@@ -107,9 +107,9 @@ This happens in near real-time—messages typically appear in your dashboard wit
 
 Modem provides confidence indicators for AI-generated insights:
 
-- **Topic confidence** — How well the grouped messages fit together
-- **Classification confidence** — How certain the feedback categorization is
-- **Match confidence** — How strongly a message relates to a topic
+- **Topic confidence.** How well the grouped messages fit together.
+- **Classification confidence.** How certain the feedback categorization is.
+- **Match confidence.** How strongly a message relates to a topic.
 
 Higher confidence = more reliable analysis.
 
@@ -117,9 +117,9 @@ Higher confidence = more reliable analysis.
 
 AI analysis isn't perfect. Be aware of:
 
-- **Ambiguous messages** — Short or unclear messages may be miscategorized
-- **Context-dependent meaning** — Sarcasm, inside jokes, or domain jargon can confuse analysis
-- **Edge cases** — Messages that don't fit typical patterns
+- **Ambiguous messages.** Short or unclear messages may be miscategorized.
+- **Context-dependent meaning.** Sarcasm, inside jokes, or domain jargon can confuse analysis.
+- **Edge cases.** Messages that don't fit typical patterns.
 
 <Tip>
   Use confidence scores as guides. For important decisions, review the source messages directly.

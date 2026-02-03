@@ -1,6 +1,6 @@
 # Modem Documentation
 
-Product documentation for [Modem](https://modem.dev) — the developer-focused CRM that helps teams understand user feedback.
+Product documentation for [Modem](https://modem.dev), the developer-focused CRM that helps teams understand user feedback.
 
 ## Structure
 

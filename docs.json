@@ -9,80 +9,50 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "index",
-              "quickstart",
-              "core-concepts",
-              "use-cases"
-            ]
-          },
-          {
-            "group": "Understanding Your Data",
-            "pages": [
-              "guides/topics",
-              "guides/participants",
-              "guides/feedback-categories"
-            ]
-          }
+        "group": "Getting Started",
+        "pages": [
+          "index",
+          "quickstart",
+          "core-concepts",
+          "use-cases"
         ]
       },
       {
-        "tab": "Integrations",
-        "groups": [
-          {
-            "group": "Overview",
-            "pages": [
-              "integrations/overview"
-            ]
-          },
-          {
-            "group": "Data Sources",
-            "pages": [
-              "integrations/slack",
-              "integrations/discord",
-              "integrations/github",
-              "integrations/linear",
-              "integrations/email"
-            ]
-          },
-          {
-            "group": "Extensibility",
-            "pages": [
-              "integrations/mcp"
-            ]
-          }
+        "group": "Understanding Your Data",
+        "pages": [
+          "guides/topics",
+          "guides/participants",
+          "guides/feedback-categories"
         ]
       },
       {
-        "tab": "Features",
-        "groups": [
-          {
-            "group": "AI Capabilities",
-            "pages": [
-              "features/ai-analysis",
-              "features/technical-crm",
-              "features/agent"
-            ]
-          },
-          {
-            "group": "Automation",
-            "pages": [
-              "features/scheduled-tasks"
-            ]
-          },
-          {
-            "group": "Account",
-            "pages": [
-              "features/team-management",
-              "features/security-privacy"
-            ]
-          }
+        "group": "Integrations",
+        "pages": [
+          "integrations/overview",
+          "integrations/slack",
+          "integrations/discord",
+          "integrations/github",
+          "integrations/linear",
+          "integrations/email",
+          "integrations/mcp"
+        ]
+      },
+      {
+        "group": "Features",
+        "pages": [
+          "features/ai-analysis",
+          "features/technical-crm",
+          "features/agent",
+          "features/scheduled-tasks"
+        ]
+      },
+      {
+        "group": "Account",
+        "pages": [
+          "features/team-management",
+          "features/security-privacy"
         ]
       }
     ],
