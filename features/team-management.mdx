@@ -1,0 +1,202 @@
+---
+title: "Team & Organization Management"
+description: "Manage your team, roles, and organization settings"
+---
+
+Modem uses organizations to manage team access and data. Each organization is a separate workspace with its own integrations, data, and team members.
+
+## Organizations
+
+An organization is your team's workspace in Modem. It contains:
+
+- Connected integrations (Slack, Discord, GitHub, etc.)
+- All ingested feedback data
+- Team members and their roles
+- Settings and configuration
+
+Most teams have one organization, but you can create multiple if you need separate workspaces (e.g., for different products or business units).
+
+### Creating an Organization
+
+When you first sign up for Modem:
+
+1. Sign in at [app.modem.dev](https://app.modem.dev)
+2. Click **Create Organization**
+3. Enter your organization name (usually your company or product name)
+4. Choose a URL slug (e.g., `acme` for `app.modem.dev/acme`)
+
+You become the **owner** of the organization automatically.
+
+### Organization Settings
+
+Access settings via **Settings** → **Organization** in the dashboard.
+
+| Setting | Description |
+|---------|-------------|
+| **Name** | Your organization's display name |
+| **Slug** | URL identifier (must be unique) |
+| **Domain** | Company email domain for auto-join |
+| **Auto-join** | Allow users with matching email domain to join automatically |
+
+## Team Roles
+
+Modem has three roles with different permission levels:
+
+### Owner
+
+Full control over the organization:
+- All admin permissions
+- Manage billing and subscription
+- Delete the organization
+- Change domain and auto-join settings
+- Cannot be removed (except by another owner)
+
+<Warning>
+  Every organization must have at least one owner. You cannot remove the last owner.
+</Warning>
+
+### Admin
+
+Can manage team and settings:
+- Invite and remove members
+- Update organization name and slug
+- Enable/disable GitHub and Slack auto-join
+- Cannot change billing or delete the organization
+
+### Member
+
+Standard access:
+- View all organization data
+- Use all features (search, agent, topics, etc.)
+- Cannot invite or manage other members
+- Cannot change organization settings
+
+## Inviting Team Members
+
+Admins and owners can invite new members:
+
+1. Go to **Settings** → **Team**
+2. Click **Add Members**
+3. Enter email addresses (comma-separated for multiple)
+4. Select a role (Member, Admin, or Owner)
+5. Click **Send Invitations**
+
+Invited users receive an email with a link to join. Invitations expire after a set period.
+
+### Managing Invitations
+
+View pending invitations in **Settings** → **Team**. You can:
+- See who was invited and by whom
+- Cancel pending invitations
+- Resend invitations if needed
+
+## Auto-Join
+
+Auto-join lets users with matching email domains join your organization automatically, without an invitation.
+
+### Email Domain Auto-Join
+
+1. Go to **Settings** → **Organization**
+2. Enter your company domain (e.g., `acme.com`)
+3. Enable **Auto-join**
+
+Now, anyone who signs up with an `@acme.com` email is automatically added to your organization as a **member**.
+
+<Info>
+  Free email domains (gmail.com, outlook.com, etc.) cannot be used for auto-join.
+</Info>
+
+### Slack Auto-Join
+
+When you connect a Slack workspace, members of that workspace can automatically join your Modem organization:
+
+1. Connect your Slack workspace
+2. In organization settings, enable **Slack Auto-Join** (enabled by default)
+
+When a Slack user accesses Modem, they're automatically added as a member.
+
+### GitHub Auto-Join
+
+Similarly, if you have a GitHub organization connected:
+
+1. Connect your GitHub organization
+2. Enable **GitHub Auto-Join** in organization settings
+
+Members of your GitHub organization can join automatically.
+
+## Removing Team Members
+
+Admins and owners can remove members:
+
+1. Go to **Settings** → **Team**
+2. Find the member to remove
+3. Click the menu (⋮) and select **Remove**
+4. Confirm the removal
+
+Removed members immediately lose access to the organization. Their historical actions (invitations sent, etc.) are preserved for audit purposes.
+
+<Note>
+  You cannot remove yourself if you're the last owner. Transfer ownership first or add another owner.
+</Note>
+
+## Switching Organizations
+
+If you belong to multiple organizations:
+
+1. Click the organization switcher in the sidebar
+2. Select the organization you want to access
+
+Each organization is completely separate—data, integrations, and settings don't overlap.
+
+## Billing
+
+Billing is managed at the organization level.
+
+### Plans
+
+| Plan | Included |
+|------|----------|
+| **Free** | 5,000 events/month, 1 user, 30-day history |
+| **Pro** | 100,000 events/month, unlimited users, 90-day history |
+| **Business** | 1,000,000 events/month, unlimited users, 180-day history |
+
+### Managing Billing
+
+Owners can manage billing:
+
+1. Go to **Settings** → **Billing**
+2. View current plan and usage
+3. Click **Manage Billing** to access the billing portal
+
+From the billing portal you can:
+- Upgrade or downgrade your plan
+- Update payment method
+- View invoices and billing history
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Use appropriate roles">
+    Not everyone needs to be an admin. Give members the minimum role they need. Reserve owner for people who need billing access or full control.
+  </Accordion>
+  <Accordion title="Enable auto-join for your team">
+    If everyone at your company should have access, enable email domain auto-join. It reduces invitation overhead and ensures no one is blocked from accessing feedback.
+  </Accordion>
+  <Accordion title="Review team access periodically">
+    Check your team list occasionally. Remove members who have left the company or no longer need access.
+  </Accordion>
+  <Accordion title="Have multiple owners">
+    Don't rely on a single owner. Add at least one backup owner in case the primary is unavailable.
+  </Accordion>
+</AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Security & Privacy" icon="shield" href="/features/security-privacy">
+    Learn how Modem protects your data.
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations/overview">
+    Connect your data sources to the organization.
+  </Card>
+</CardGroup>

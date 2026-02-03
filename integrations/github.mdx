@@ -1,0 +1,181 @@
+---
+title: "GitHub"
+description: "Sync GitHub issues, discussions, and pull request comments"
+---
+
+The GitHub integration captures feedback from your repositories, including issues, discussions, and pull request comments.
+
+## What Gets Captured
+
+- **Issues** — Issue titles, descriptions, and comments
+- **Pull Requests** — PR descriptions, review comments, and discussion
+- **Discussions** — GitHub Discussions posts and replies
+- **Reactions** — Emoji reactions on issues and comments
+- **User Profiles** — GitHub usernames and avatars
+- **Labels and Metadata** — Issue labels, states, and assignees
+
+## Prerequisites
+
+- Admin access to the GitHub repositories you want to connect (or organization owner permissions)
+- A Modem organization
+
+## Setup
+
+<Steps>
+  <Step title="Start the connection">
+    Go to **Settings** → **Integrations** → **GitHub** in your Modem dashboard and click **Connect GitHub**.
+  </Step>
+  <Step title="Install the GitHub App">
+    You'll be redirected to GitHub to install the Modem GitHub App. Choose:
+    - **All repositories** — Modem can access all current and future repositories
+    - **Selected repositories** — Choose specific repositories to connect
+  </Step>
+  <Step title="Authorize access">
+    Review the permissions and click **Install & Authorize**.
+  </Step>
+  <Step title="Confirm repositories">
+    Return to Modem and confirm which repositories to sync.
+  </Step>
+</Steps>
+
+## Choosing Repositories
+
+### Recommended
+
+- Your main product repositories with active issue tracking
+- Repositories where users submit bug reports or feature requests
+- Open-source projects with community contributions
+
+### Consider Carefully
+
+- Private repositories with sensitive information
+- Archived or inactive repositories
+- Internal tooling repositories (unless tracking internal feedback)
+
+<Tip>
+  You can always modify repository selection later through GitHub App settings or Modem integration settings.
+</Tip>
+
+## What Modem Tracks
+
+### Issues
+
+- New issues are captured as they're created
+- Issue comments are tracked as part of the conversation
+- Status changes (open, closed) are recorded
+- Labels help categorize feedback
+
+### Pull Requests
+
+- PR descriptions and context
+- Review comments and feedback
+- Discussion threads
+- Related issues (when linked)
+
+### Discussions
+
+If your repository uses GitHub Discussions:
+- Discussion posts become trackable topics
+- Replies are captured as conversation threads
+- Categories and labels are preserved
+
+## Historical Data
+
+When you first connect a repository, Modem syncs:
+
+- Recent issues (open and recently closed)
+- Recent pull requests with comments
+- Recent discussions (if enabled)
+
+The sync depth depends on repository activity. Very active repositories may have limited historical coverage.
+
+## Permissions
+
+The Modem GitHub App requests:
+
+| Permission | Access | Why It's Needed |
+|------------|--------|-----------------|
+| Issues | Read | View issues and comments |
+| Pull Requests | Read | View PRs and review comments |
+| Discussions | Read | View discussion posts |
+| Metadata | Read | Access repository information |
+
+The app does **not** request permissions to:
+- Create or modify issues
+- Push code or modify files
+- Access private repository contents
+- Manage repository settings
+
+<Info>
+  Modem operates in read-only mode. It cannot create issues, comment on PRs, or modify your repositories.
+</Info>
+
+## Real-time Updates
+
+After initial sync, Modem receives real-time updates via webhooks:
+
+- New issues and comments appear within seconds
+- PR activity is tracked as it happens
+- Discussion updates are captured immediately
+
+## Cross-Linking
+
+GitHub feedback often relates to conversations in other channels:
+
+- A Slack discussion about a bug might reference a GitHub issue
+- A Discord feature request might eventually become a GitHub issue
+
+Modem can correlate these across sources when:
+- The same user participates (via linked GitHub account)
+- Topics share semantic similarity
+- Explicit links are present
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Repository not appearing">
+    - Verify the Modem GitHub App is installed for that repository
+    - Check your GitHub App installation settings
+    - Ensure you have admin access to the repository
+  </Accordion>
+  <Accordion title="Missing issues or PRs">
+    - Recent activity syncs first; older items may take longer
+    - Very old issues may not be synced during initial import
+    - Check that the repository is selected in Modem settings
+  </Accordion>
+  <Accordion title="Webhook events not arriving">
+    - Verify the GitHub App is properly installed
+    - Check GitHub's webhook delivery status in repository settings
+    - Modem support can help diagnose webhook issues
+  </Accordion>
+</AccordionGroup>
+
+## Managing the Integration
+
+### Adding Repositories
+
+To add more repositories:
+
+1. Go to GitHub → Settings → Applications → Modem
+2. Click **Configure**
+3. Add additional repositories to the installation
+
+Or in Modem:
+1. Go to **Settings** → **Integrations** → **GitHub**
+2. Click **Manage Repositories**
+
+### Removing Repositories
+
+To stop syncing a repository:
+
+1. In Modem: Go to integration settings and deselect the repository
+2. Or in GitHub: Update the app installation to remove repository access
+
+### Disconnecting
+
+To fully disconnect GitHub:
+
+1. In Modem: **Settings** → **Integrations** → **GitHub** → **Disconnect**
+2. In GitHub: Uninstall the Modem GitHub App
+
+Historical data remains in Modem after disconnection.

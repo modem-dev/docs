@@ -1,0 +1,139 @@
+---
+title: "Integrations Overview"
+description: "Connect your communication channels to Modem"
+---
+
+Modem integrates with the tools your users already use. Connect your data sources to start aggregating and analyzing user feedback.
+
+## Available Integrations
+
+<CardGroup cols={2}>
+  <Card title="Slack" icon="slack" href="/integrations/slack">
+    Connect Slack workspaces to capture messages from support channels, community discussions, and customer communications.
+  </Card>
+  <Card title="Discord" icon="discord" href="/integrations/discord">
+    Integrate Discord servers to analyze community feedback, support requests, and user discussions.
+  </Card>
+  <Card title="GitHub" icon="github" href="/integrations/github">
+    Sync GitHub issues, discussions, and pull request comments to track developer feedback.
+  </Card>
+  <Card title="Linear" icon="square-check" href="/integrations/linear">
+    Connect Linear to incorporate issue discussions and project feedback.
+  </Card>
+  <Card title="Email" icon="envelope" href="/integrations/email">
+    Ingest email feedback through dedicated inbound addresses.
+  </Card>
+  <Card title="MCP" icon="plug" href="/integrations/mcp">
+    Extend Modem with custom tools using the Model Context Protocol.
+  </Card>
+</CardGroup>
+
+## How Integrations Work
+
+### Data Flow
+
+```
+Your Tools (Slack, Discord, GitHub, etc.)
+            ↓
+    Modem Ingestion Layer
+            ↓
+    Processing & Analysis
+            ↓
+    Your Modem Dashboard
+```
+
+1. **Connection** — You authorize Modem to access your data source via OAuth or API keys
+2. **Historical Sync** — Modem fetches historical messages and events (varies by integration)
+3. **Real-time Updates** — New messages and events are captured as they happen
+4. **Processing** — Messages are analyzed, categorized, and organized into topics
+
+### What Gets Captured
+
+Each integration captures different types of data:
+
+| Integration | Messages | Reactions | Threads | Events |
+|-------------|----------|-----------|---------|--------|
+| Slack | Yes | Yes | Yes | Yes |
+| Discord | Yes | Yes | Yes | Yes |
+| GitHub | Yes (comments) | Yes | Yes | Yes (issues, PRs) |
+| Linear | Yes (comments) | — | — | Yes (issues) |
+| Email | Yes | — | Yes (replies) | — |
+
+## Choosing What to Connect
+
+### Start with High-Value Sources
+
+Not all channels contain useful feedback. Prioritize:
+
+- **Support channels** — Where users ask questions and report issues
+- **Community channels** — Where users discuss your product
+- **Feedback channels** — Dedicated spaces for suggestions and requests
+
+Avoid:
+- Internal team channels (unless you want to analyze internal feedback)
+- Bot-heavy channels with little human discussion
+- Channels with sensitive information you don't want in Modem
+
+### Channel Selection
+
+Most integrations let you select specific channels to monitor rather than capturing everything:
+
+- **Slack** — Choose specific channels during setup
+- **Discord** — Select channels to monitor
+- **GitHub** — Choose repositories to sync
+
+<Tip>
+  Start with a few high-value channels and expand later. It's easier to add channels than to clean up data from noisy sources.
+</Tip>
+
+## Managing Integrations
+
+### Adding Integrations
+
+1. Go to **Settings** → **Integrations** in your Modem dashboard
+2. Click on the integration you want to add
+3. Follow the authorization flow (usually OAuth)
+4. Select channels/repositories to sync
+
+### Removing Integrations
+
+To disconnect an integration:
+
+1. Go to **Settings** → **Integrations**
+2. Find the integration you want to remove
+3. Click **Disconnect**
+
+<Warning>
+  Disconnecting an integration stops new data from flowing in. Historical data that was already ingested remains in Modem.
+</Warning>
+
+### Updating Permissions
+
+If you need to change which channels or repositories are synced:
+
+1. Go to **Settings** → **Integrations**
+2. Click on the integration to configure
+3. Update channel/repository selection
+
+## Cross-Platform Correlation
+
+When you connect multiple integrations, Modem attempts to correlate participants across platforms:
+
+- Users with the same email across platforms are linked
+- Topics can span multiple sources (e.g., a Slack discussion and a GitHub issue about the same problem)
+- Search works across all connected sources simultaneously
+
+This gives you a unified view even when conversations happen across different tools.
+
+## Next Steps
+
+Choose an integration to get started:
+
+<CardGroup cols={3}>
+  <Card title="Slack" icon="slack" href="/integrations/slack" />
+  <Card title="Discord" icon="discord" href="/integrations/discord" />
+  <Card title="GitHub" icon="github" href="/integrations/github" />
+  <Card title="Linear" icon="square-check" href="/integrations/linear" />
+  <Card title="Email" icon="envelope" href="/integrations/email" />
+  <Card title="MCP" icon="plug" href="/integrations/mcp" />
+</CardGroup>

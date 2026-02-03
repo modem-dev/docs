@@ -1,0 +1,229 @@
+---
+title: "The Modem Agent"
+description: "Ask questions about your users and feedback in natural language"
+---
+
+The Modem Agent is an AI assistant that can answer questions about your user feedback, find patterns, and help you understand your users. Instead of manually browsing and filtering, just ask.
+
+## What You Can Ask
+
+The Agent can help with a wide range of questions:
+
+### Understanding Users
+
+> "What are users complaining about this week?"
+>
+> "Who are our most active community members?"
+>
+> "What do enterprise customers care about most?"
+
+### Finding Patterns
+
+> "Are there any trending issues in the last month?"
+>
+> "What features do users request most often?"
+>
+> "Has anyone reported problems with the new release?"
+
+### Investigating Issues
+
+> "Show me all bug reports related to authentication"
+>
+> "What did users say about the pricing change?"
+>
+> "Find discussions about API performance"
+
+### Getting Summaries
+
+> "Summarize feedback from the last sprint"
+>
+> "What are the main themes in our Discord server?"
+>
+> "Give me a weekly digest of important feedback"
+
+## Using the Agent
+
+### In the Dashboard
+
+1. Navigate to **Agent** in your Modem dashboard
+2. Type your question in natural language
+3. The Agent will search your data, analyze relevant information, and respond
+
+### Conversation Flow
+
+The Agent maintains context within a conversation:
+
+> **You:** What are the top bug reports this week?
+>
+> **Agent:** Here are the top 5 bug reports from this week:
+> 1. Export failing on large datasets (12 mentions)
+> 2. Mobile app crashing on Android 14 (8 mentions)
+> ...
+>
+> **You:** Tell me more about the export issue
+>
+> **Agent:** The export failure is affecting users trying to export datasets over 10,000 rows...
+
+### In Slack
+
+You can also interact with the Agent directly in Slack:
+
+1. @mention the Modem bot in any channel where it's added
+2. Ask your question
+3. The Agent responds in the thread
+
+```
+@Modem what's the latest on the payment integration issues?
+```
+
+<Info>
+  The Modem bot must be added to channels where you want to use it.
+</Info>
+
+## How It Works
+
+When you ask a question, the Agent:
+
+1. **Analyzes your query** — Understands what you're asking for
+2. **Searches your data** — Uses semantic search to find relevant topics, messages, and participants
+3. **Accesses tools** — Can query the database, call APIs (GitHub, Linear), and use MCP tools
+4. **Synthesizes a response** — Combines information into a helpful answer
+
+The Agent has access to:
+- All messages and topics in your organization
+- Participant profiles and history
+- Connected integration data (GitHub issues, Linear issues, etc.)
+- Custom MCP tools (if configured)
+
+## Capabilities
+
+### Data Access
+
+| Data Type | Agent Can... |
+|-----------|--------------|
+| Messages | Search, filter, summarize |
+| Topics | Browse, analyze trends, find patterns |
+| Participants | Look up profiles, find activity |
+| GitHub | Query issues, PRs, discussions |
+| Linear | Query issues, projects |
+| Custom (MCP) | Use tools you've configured |
+
+### Analysis
+
+The Agent can:
+- Count and rank (e.g., "top 5 feature requests")
+- Filter by time, source, category
+- Compare periods (e.g., "this month vs. last month")
+- Identify trends and patterns
+- Summarize large amounts of feedback
+
+### Actions
+
+With appropriate integrations, the Agent can:
+- Create Linear issues from feedback
+- Post summaries to Slack channels
+- Look up customer information (via MCP)
+
+## Example Conversations
+
+### Weekly Digest
+
+> **You:** Give me a summary of important feedback from this week
+>
+> **Agent:** Here's your weekly feedback summary (Jan 15-22):
+>
+> **Bug Reports (23 total)**
+> - Most critical: Export timeout affecting 15 users
+> - Mobile: 3 reports of iOS app freezing
+>
+> **Feature Requests (18 total)**
+> - Top request: Dark mode (7 mentions)
+> - API webhooks (5 mentions)
+>
+> **Notable Praise**
+> - 4 users praised the new onboarding flow
+>
+> **Trending Topics**
+> - "API rate limits" discussion increased 200% vs last week
+
+### Deep Dive
+
+> **You:** What's the history of dark mode requests?
+>
+> **Agent:** Dark mode has been requested 47 times over the past 6 months:
+>
+> - First mention: August 2024 in Discord #suggestions
+> - Peak: November 2024 (15 requests after competitor launched dark mode)
+> - Recent: 3 requests in January 2025
+>
+> Key themes:
+> - Eye strain during night use
+> - Professional appearance for demos
+> - Battery savings on OLED devices
+>
+> Notable requesters include 3 enterprise customers (Acme Corp, TechStart, DataFlow).
+
+### Investigation
+
+> **You:** Are there any issues with our Stripe integration?
+>
+> **Agent:** I found 8 mentions of Stripe-related issues in the last 30 days:
+>
+> **Bugs (3):**
+> - Webhook delivery failing intermittently
+> - Subscription status not updating
+> - Currency conversion showing wrong amounts
+>
+> **Questions (5):**
+> - How to handle failed payments
+> - Testing webhooks locally
+> - Multi-currency support
+>
+> The webhook issue appears most urgent with 5 affected users.
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Be specific">
+    More specific questions get better answers:
+    - ✅ "What bug reports came from enterprise customers last month?"
+    - ⚠️ "What are the bugs?"
+  </Accordion>
+  <Accordion title="Ask follow-up questions">
+    The Agent remembers context. Drill down on interesting findings:
+    - "Tell me more about that"
+    - "Who reported this issue?"
+    - "When did this start?"
+  </Accordion>
+  <Accordion title="Use it for exploration">
+    Not sure what to look for? Start broad:
+    - "What should I know about feedback this week?"
+    - "Are there any concerning trends?"
+  </Accordion>
+  <Accordion title="Verify important findings">
+    For critical decisions, click through to see the source messages. The Agent summarizes, but context matters.
+  </Accordion>
+</AccordionGroup>
+
+## Limitations
+
+The Agent is powerful but has limitations:
+
+- **Data scope** — Can only access data in your Modem organization
+- **Real-time events** — Very recent messages (seconds old) may not be indexed yet
+- **External data** — Can't access data outside connected integrations
+- **Actions** — Limited to configured capabilities (can't take actions you haven't enabled)
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="AI-Powered Analysis" icon="brain" href="/features/ai-analysis">
+    The AI capabilities that power the Agent.
+  </Card>
+  <Card title="MCP Integration" icon="plug" href="/integrations/mcp">
+    Access Modem from your AI tools.
+  </Card>
+  <Card title="Scheduled Tasks" icon="clock" href="/features/scheduled-tasks">
+    Automate Agent queries on a schedule.
+  </Card>
+</CardGroup>

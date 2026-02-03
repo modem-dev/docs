@@ -1,0 +1,128 @@
+---
+title: "Core Concepts"
+description: "Understand how Modem organizes and analyzes your user feedback"
+---
+
+Modem transforms raw messages from your communication channels into structured, actionable insights. Here's how the key concepts work together.
+
+## Messages & Events
+
+At the foundation, Modem ingests **messages** and **events** from your connected data sources.
+
+- **Messages** are individual pieces of communication: a Slack message, Discord post, GitHub comment, or email
+- **Events** are actions or changes: a GitHub issue being opened, a reaction being added, a thread being started
+
+Every message is enriched with metadata: author information, timestamps, channel context, and threading relationships.
+
+## Topics
+
+**Topics** are AI-discovered conversation themes. When users discuss similar subjects across different channels or time periods, Modem groups these conversations into topics.
+
+<Info>
+  Topics are generated automatically—you don't need to tag or categorize messages manually.
+</Info>
+
+A topic might be:
+- "Users struggling with OAuth setup" (spanning Slack support questions and GitHub issues)
+- "Feature request: Dark mode" (collected from Discord suggestions and email feedback)
+- "Performance issues on mobile" (bug reports across multiple channels)
+
+Each topic includes:
+- An AI-generated title and summary
+- The messages that belong to it
+- Confidence scoring based on semantic similarity
+- Key participants involved in the discussion
+
+[Learn more about Topics →](/guides/topics)
+
+## Groups
+
+**Groups** are conversation segments within a topic. A topic might contain multiple distinct conversations that happened at different times or in different contexts.
+
+For example, a "Dark mode request" topic might have groups for:
+- Initial feature request discussion (March)
+- Follow-up questions after partial implementation (June)
+- Bug reports about dark mode contrast issues (August)
+
+Groups help you understand the timeline and evolution of a topic.
+
+## Participants
+
+**Participants** are the people interacting across your connected sources. Modem creates unified profiles for users, linking their identities across platforms when possible.
+
+A participant profile shows:
+- All messages they've sent across sources
+- Topics they've contributed to
+- Feedback patterns (do they report bugs? Request features? Offer praise?)
+- Associated company (when identifiable)
+
+[Learn more about Participants →](/guides/participants)
+
+## Feedback Categories
+
+Modem automatically categorizes messages into feedback types:
+
+| Category | Description | Example |
+|----------|-------------|---------|
+| **Bug Report** | Something isn't working as expected | "The export button doesn't work on Safari" |
+| **Feature Request** | A suggestion for new functionality | "It would be great if we could filter by date" |
+| **Question** | Seeking help or clarification | "How do I reset my API key?" |
+| **Complaint** | Expressing frustration or dissatisfaction | "This is really slow and frustrating" |
+| **Praise** | Positive feedback | "Love the new dashboard design!" |
+
+This categorization happens automatically using AI analysis of message content and context.
+
+[Learn more about Feedback Categories →](/guides/feedback-categories)
+
+## Channels
+
+**Channels** represent the specific places where conversations happen:
+- A Slack channel (#support, #feedback)
+- A Discord server channel
+- A GitHub repository
+- An email inbox
+
+Modem tracks which channels messages come from, letting you filter and analyze by source.
+
+## How It All Connects
+
+```
+Data Sources (Slack, Discord, GitHub, Linear, Email)
+        ↓
+    Messages & Events (raw data)
+        ↓
+    AI Processing (embeddings, classification)
+        ↓
+    ┌─────────────────────────────────────┐
+    │  Topics (themed conversations)      │
+    │    └── Groups (conversation segments)│
+    │  Participants (unified user profiles)│
+    │  Feedback Categories (bug, feature..)│
+    └─────────────────────────────────────┘
+        ↓
+    Dashboard, Search, Agent
+```
+
+## What Happens Behind the Scenes
+
+When a new message arrives:
+
+1. **Ingestion** — The message is captured with full metadata
+2. **Embedding** — AI generates a vector representation of the message content
+3. **Classification** — The message is categorized by feedback type
+4. **Topic Matching** — Semantic search finds related existing topics, or a new topic is created
+5. **Group Assignment** — The message is assigned to a conversation group within the topic
+6. **Participant Linking** — The author is linked to their unified participant profile
+
+This processing happens in near real-time, so new messages appear in your dashboard within seconds.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Topics Deep Dive" icon="layer-group" href="/guides/topics">
+    Learn how topics are discovered and how to work with them.
+  </Card>
+  <Card title="Understanding Participants" icon="users" href="/guides/participants">
+    Explore participant profiles and cross-platform identity linking.
+  </Card>
+</CardGroup>

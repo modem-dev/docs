@@ -1,0 +1,156 @@
+---
+title: "Email"
+description: "Capture email feedback through dedicated inbound addresses"
+---
+
+The email integration lets you capture feedback sent via email, routing it into Modem alongside your other data sources.
+
+## How It Works
+
+Modem provides a dedicated inbound email address for your organization. Emails sent to this address are ingested and analyzed like messages from other sources.
+
+**Common use cases:**
+- Forward support emails to Modem
+- Set up a public feedback email address
+- Capture email threads related to customer issues
+
+## What Gets Captured
+
+- **Email content** — Subject line and body text
+- **Sender information** — Name and email address
+- **Thread context** — Reply chains are tracked as conversations
+- **Timestamps** — When emails were sent
+- **Attachments** — Referenced but not stored (links preserved if accessible)
+
+## Setup
+
+<Steps>
+  <Step title="Enable email integration">
+    Go to **Settings** → **Integrations** → **Email** and click **Enable**.
+  </Step>
+  <Step title="Get your inbound address">
+    Modem generates a unique inbound email address for your organization:
+    ```
+    feedback-{your-org-id}@inbound.modem.dev
+    ```
+  </Step>
+  <Step title="Configure forwarding">
+    Set up email forwarding from your existing address to the Modem inbound address. See forwarding options below.
+  </Step>
+</Steps>
+
+## Forwarding Options
+
+### Option 1: Auto-Forward from Support Address
+
+Configure your email provider to auto-forward copies of emails to Modem:
+
+**Gmail/Google Workspace:**
+1. Go to Settings → Forwarding
+2. Add the Modem inbound address
+3. Choose to forward a copy of incoming mail
+
+**Outlook/Microsoft 365:**
+1. Go to Settings → Mail → Forwarding
+2. Enable forwarding to the Modem address
+3. Keep a copy in your mailbox
+
+### Option 2: Dedicated Feedback Address
+
+Create a public feedback address that forwards to Modem:
+
+1. Create `feedback@yourcompany.com`
+2. Set it to forward all mail to your Modem inbound address
+3. Share this address with users for feedback
+
+### Option 3: Manual Forwarding
+
+Forward individual emails to Modem when relevant:
+
+1. When you receive feedback worth tracking, forward it to your Modem inbound address
+2. The email (including original sender info) will be captured
+
+<Tip>
+  Auto-forwarding captures everything automatically. Manual forwarding gives you control over what enters Modem.
+</Tip>
+
+## Email Threading
+
+Modem tracks email threads as conversations:
+
+- Initial email creates a new conversation
+- Replies are linked to the original thread
+- Thread context helps with topic matching
+
+For best thread tracking:
+- Preserve email subject lines (don't modify them)
+- Keep reply chains intact when forwarding
+
+## Participant Matching
+
+Email addresses are key identifiers for participants:
+
+- If a user emails from `jane@acme.com` and is also `jane@acme.com` in Slack, they're linked
+- Email domains help with company association
+- New email senders create new participant profiles
+
+## Privacy Considerations
+
+<Warning>
+  Be thoughtful about what emails you forward to Modem:
+  - Don't forward emails containing sensitive personal information
+  - Consider GDPR and privacy regulations
+  - Ensure you have appropriate consent for processing feedback
+</Warning>
+
+**Best practices:**
+- Use dedicated feedback addresses rather than forwarding all support mail
+- Review forwarding rules to exclude sensitive categories
+- Inform users if their feedback may be analyzed
+
+## Filtering
+
+Not all emails should be captured. Consider:
+
+**Exclude:**
+- Internal team communications
+- Automated notifications and receipts
+- Emails with sensitive data (billing, legal)
+
+**Include:**
+- Feature requests and suggestions
+- Bug reports and issue descriptions
+- General product feedback
+- Support conversations (with appropriate consent)
+
+Set up email rules at your provider to filter before forwarding, or use manual forwarding for control.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Emails not appearing">
+    - Verify the forwarding is configured correctly
+    - Check that you're forwarding to the correct Modem inbound address
+    - Test by sending a test email directly to the inbound address
+    - Check your email provider's forwarding logs
+  </Accordion>
+  <Accordion title="Thread context missing">
+    - Email threading relies on subject lines and references
+    - Heavily modified forwards may lose thread context
+    - Try forwarding as an attachment to preserve headers
+  </Accordion>
+  <Accordion title="Sender information incorrect">
+    - When auto-forwarding, ensure your provider preserves original sender info
+    - Some forwarding configurations show your address as the sender
+    - Check forwarding settings for "preserve original sender" options
+  </Accordion>
+</AccordionGroup>
+
+## Disconnecting
+
+To stop capturing emails:
+
+1. Remove or disable forwarding rules at your email provider
+2. In Modem: **Settings** → **Integrations** → **Email** → **Disable**
+
+Historical email data remains in Modem after disconnection.

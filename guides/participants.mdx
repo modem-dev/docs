@@ -1,0 +1,127 @@
+---
+title: "Participants"
+description: "Understanding unified user profiles across your data sources"
+---
+
+Participants are the users who interact across your connected data sources. Modem creates unified profiles that help you understand each user's feedback history and engagement patterns.
+
+## How Participants Are Created
+
+When Modem ingests messages, it extracts author information and creates participant profiles. As more data flows in, these profiles are enriched with:
+
+- Messages across all connected sources
+- Topics they've contributed to
+- Feedback patterns (types of messages they send)
+- Company associations (when identifiable)
+
+## Cross-Platform Identity
+
+When a user is active across multiple platforms, Modem can link their identities into a single participant profile.
+
+<Info>
+  Identity linking uses email addresses, usernames, and other signals. It's not always possible to link identities automatically—some users may appear as separate participants on different platforms.
+</Info>
+
+### Example
+
+A user might be:
+- `jane@acme.com` on Slack
+- `janedoe` on Discord
+- `jane-doe` on GitHub
+
+If Modem can determine these are the same person (via shared email or explicit linking), they'll be consolidated into a single participant profile showing activity across all three platforms.
+
+## Participant Profiles
+
+Each participant profile includes:
+
+| Section | Description |
+|---------|-------------|
+| **Identity** | Name, avatar, email, and linked platform accounts |
+| **Messages** | All messages they've sent across connected sources |
+| **Topics** | Topics they've contributed to |
+| **Feedback Breakdown** | Distribution of their messages by category (bugs, features, etc.) |
+| **Activity Timeline** | When they've been active |
+| **Company** | Associated company (when identifiable) |
+
+## Working with Participants
+
+### Browsing Participants
+
+Navigate to **Participants** in your dashboard to see all users across your data sources.
+
+Filter and sort by:
+- **Activity** — Most recently active, most messages, most topics
+- **Feedback type** — Users who report bugs, request features, etc.
+- **Source** — Users from specific platforms
+- **Company** — Users from specific companies
+
+### Participant Details
+
+Click on a participant to see their full profile:
+
+- **Overview** — Summary of their engagement and feedback patterns
+- **Messages** — Complete history of their messages across sources
+- **Topics** — Topics they've participated in, with their specific contributions
+
+### Searching for Participants
+
+Use the search bar to find participants by:
+- Name or username
+- Email address
+- Company name
+- Message content (find people who mentioned specific things)
+
+## Companies
+
+Modem can associate participants with companies based on:
+- Email domain (e.g., `jane@acme.com` → Acme Inc.)
+- Explicit company data from integrations
+- Manual assignments
+
+### Company View
+
+The **Companies** section in your dashboard aggregates participant data by organization:
+
+- Total users from that company
+- Combined feedback history
+- Topics they care about
+- Overall engagement level
+
+This is useful for:
+- Understanding which customers are most engaged
+- Identifying company-specific issues
+- Prioritizing feedback from key accounts
+
+## Privacy Considerations
+
+Participant data is only accessible to members of your Modem organization. Modem does not share participant data across organizations.
+
+<Note>
+  When connecting data sources, ensure you have appropriate permissions to access and analyze user data. Review your organization's privacy policies and data handling requirements.
+</Note>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Identify your power users">
+    Sort participants by message count or topic involvement to find your most engaged users. These are often great candidates for beta testing or customer interviews.
+  </Accordion>
+  <Accordion title="Track feedback patterns">
+    If a participant consistently reports bugs, they might be using your product in edge cases worth understanding. If they mostly request features, they might have ideas worth exploring.
+  </Accordion>
+  <Accordion title="Use company view for B2B">
+    If you serve business customers, the company view helps you understand account-level feedback patterns and identify accounts that may need attention.
+  </Accordion>
+</AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Topics" icon="layer-group" href="/guides/topics">
+    See what topics participants are discussing.
+  </Card>
+  <Card title="Feedback Categories" icon="tags" href="/guides/feedback-categories">
+    Understand how participant messages are categorized.
+  </Card>
+</CardGroup>

@@ -1,0 +1,155 @@
+---
+title: "Use Cases"
+description: "Real-world examples of how teams use Modem"
+---
+
+Modem helps teams turn scattered feedback into action. Here are three ways customers use Modem to stay connected with their users.
+
+## Personalized Release Notes
+
+**Problem:** You shipped a new feature, but how do you tell the right customers about it? Generic release notes don't resonate, and manually tracking who asked for what is tedious.
+
+**Solution:** Use Modem to generate release notes tailored to each customer based on their actual feedback history.
+
+### How It Works
+
+1. **Connect your feedback sources** — Modem ingests conversations from Slack, Discord, GitHub, and email
+2. **Ship your feature** — When you close a Linear issue or merge a PR, Modem knows what was delivered
+3. **Generate personalized notes** — Ask the Modem Agent: "Which customers asked for [feature]? Draft release notes highlighting how this addresses their specific requests."
+
+### Example
+
+> **You:** We just shipped dark mode. Who requested this and what did they say?
+>
+> **Modem Agent:** 23 users requested dark mode over the past 6 months. Here are the top requesters:
+>
+> - **Sarah at Acme Corp** (3 requests): Mentioned eye strain during late-night debugging sessions
+> - **DevTeam at StartupXYZ** (2 requests): Wanted it for customer demos to match their brand
+> - **Marcus** (Discord): Asked specifically about OLED battery savings
+>
+> Draft release note for Sarah:
+> *"Remember when you mentioned eye strain during those late-night debugging sessions? Dark mode is here. Your eyes will thank you."*
+
+### Why It Matters
+
+- Customers feel heard when you acknowledge their specific feedback
+- Higher engagement with release announcements
+- Builds loyalty by closing the feedback loop
+
+---
+
+## Weekly Feedback Digest
+
+**Problem:** Your community is active on Discord, but leadership doesn't have time to read every message. Important signals get buried in the noise.
+
+**Solution:** Automatically summarize bug reports and feature requests and deliver them via email every week.
+
+### How It Works
+
+1. **Connect Discord** — Modem captures all messages from your community channels
+2. **AI categorizes feedback** — Each message is classified as a bug report, feature request, question, complaint, or praise
+3. **Schedule a digest** — Set up a weekly task that summarizes feedback and emails it to your team
+
+### Example Digest
+
+```
+Weekly Feedback Summary: Jan 15-22
+
+BUG REPORTS (12 total)
+━━━━━━━━━━━━━━━━━━━━━
+🔴 Critical: Export timeout affecting 8 users
+   "Export fails on datasets over 10k rows"
+   First reported: Jan 16 | Mentions: 8
+
+🟡 Medium: Mobile app crashes on Android 14
+   "App freezes when uploading images"
+   First reported: Jan 18 | Mentions: 4
+
+FEATURE REQUESTS (9 total)
+━━━━━━━━━━━━━━━━━━━━━━━━━
+⭐ Most requested: Keyboard shortcuts (5 mentions)
+⭐ Trending: CSV import wizard (3 mentions, all new this week)
+⭐ Enterprise: SSO support (2 mentions from paying customers)
+
+SENTIMENT
+━━━━━━━━━
+👍 Praise: 6 messages (new onboarding flow getting positive feedback)
+👎 Complaints: 3 messages (pricing concerns from indie developers)
+```
+
+### Configuration
+
+In Modem, create a scheduled task:
+- **Schedule:** Every Monday at 9 AM
+- **Query:** Summarize bug reports and feature requests from Discord, grouped by severity and popularity
+- **Delivery:** Email to product@yourcompany.com
+
+### Why It Matters
+
+- Leadership stays informed without reading every message
+- Trends become visible before they escalate
+- Product decisions backed by aggregated community voice
+
+---
+
+## Closing the Loop on Feature Requests
+
+**Problem:** A user requests a feature in Slack. Months later, you ship it—but forget to tell them. They never know their feedback mattered.
+
+**Solution:** Automatically notify users when their requested feature ships by connecting Modem to Linear.
+
+### How It Works
+
+1. **User requests a feature** — In Slack, Discord, or any connected source
+2. **You create a Linear issue** — Link it to the feedback or let Modem track the connection
+3. **You ship and close the issue** — When the Linear ticket moves to "Done"
+4. **Modem notifies the requester** — Automatically sends a message letting them know
+
+### Example Flow
+
+**January 15 — User requests feature:**
+> @support Can we get keyboard shortcuts? Would save me so much time.
+
+**January 16 — You create Linear issue:**
+> "Add keyboard shortcuts" — linked to Slack conversation
+
+**March 10 — You ship and close the issue**
+
+**March 10 — Modem sends notification:**
+> Hey! Remember when you asked about keyboard shortcuts back in January?
+> We just shipped it! Check out the new shortcuts in Settings → Keyboard.
+> Thanks for the suggestion—this one's for you. 🎉
+
+### Setting It Up
+
+1. **Connect Linear** — Modem syncs your issues and their status
+2. **Enable close-the-loop automation** — In scheduled tasks, create a workflow triggered by Linear issue completion
+3. **Customize the message** — Personalize the notification template
+
+### Why It Matters
+
+- Users feel valued when you follow up
+- Increases trust and loyalty
+- Creates advocates who see their feedback become reality
+- Reduces "did you ever ship X?" questions
+
+---
+
+## Getting Started
+
+These use cases combine Modem's core capabilities:
+
+<CardGroup cols={2}>
+  <Card title="Connect Integrations" icon="plug" href="/integrations/overview">
+    Start by connecting your feedback sources.
+  </Card>
+  <Card title="Use the Agent" icon="robot" href="/features/agent">
+    Query your data with natural language.
+  </Card>
+  <Card title="Set Up Automation" icon="clock" href="/features/scheduled-tasks">
+    Schedule recurring tasks and notifications.
+  </Card>
+  <Card title="Connect Linear" icon="square-check" href="/integrations/linear">
+    Track issues and close the loop.
+  </Card>
+</CardGroup>

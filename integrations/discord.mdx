@@ -1,0 +1,142 @@
+---
+title: "Discord"
+description: "Connect Discord servers to analyze community feedback"
+---
+
+The Discord integration captures messages from your Discord servers, ideal for developer communities, open-source projects, and gaming communities.
+
+## What Gets Captured
+
+- **Messages** — All messages in selected channels
+- **Threads** — Forum posts and thread replies
+- **Reactions** — Emoji reactions on messages
+- **User Profiles** — Usernames, display names, and avatars
+- **Server Metadata** — Channel names and categories
+
+## Prerequisites
+
+- Admin or moderator access to the Discord server
+- Permission to add bots to the server
+- A Modem organization
+
+## Setup
+
+<Steps>
+  <Step title="Start the connection">
+    Go to **Settings** → **Integrations** → **Discord** in your Modem dashboard and click **Connect Discord**.
+  </Step>
+  <Step title="Authorize the bot">
+    You'll be redirected to Discord to add the Modem bot to your server. Select the server you want to connect and click **Authorize**.
+  </Step>
+  <Step title="Select channels">
+    Return to Modem and select which channels the bot should monitor. You can select:
+    - Text channels
+    - Forum channels
+    - Voice channel text chat
+  </Step>
+  <Step title="Start sync">
+    Click **Complete Setup**. Modem will begin syncing messages and listening for new ones.
+  </Step>
+</Steps>
+
+## Choosing Channels
+
+### Recommended Channels
+
+- `#support` or `#help` — Community support channels
+- `#feedback` or `#suggestions` — Feature requests and ideas
+- `#bugs` or `#bug-reports` — User-reported issues
+- Forum channels for discussions and Q&A
+
+### Channels to Avoid
+
+- Team-only or moderator channels (unless relevant)
+- Bot command channels
+- Off-topic or meme channels (high noise)
+
+<Tip>
+  Start with a few key channels and expand based on what's useful. You can adjust channel selection anytime.
+</Tip>
+
+## Historical Data
+
+When you connect Discord, Modem syncs recent message history:
+
+- Initial sync captures recent messages (typically the last few days to weeks)
+- After initial sync, all new messages are captured in real-time
+- Historical depth depends on message volume and channel activity
+
+## Forum Channels
+
+Discord forum channels work well with Modem:
+
+- Each forum post becomes a trackable conversation
+- Replies are captured as part of the thread
+- Tags and post metadata are preserved
+
+Forum channels are excellent for structured feedback collection.
+
+## Bot Permissions
+
+The Modem Discord bot requests these permissions:
+
+| Permission | Why It's Needed |
+|------------|-----------------|
+| Read Messages | View messages in selected channels |
+| Read Message History | Access historical messages |
+| View Channels | See available channels |
+
+The bot does **not** request permissions to:
+- Send messages
+- Manage channels or roles
+- Kick or ban users
+- Access voice channels
+
+<Info>
+  The Modem bot operates in read-only mode. It cannot respond to messages or modify your server.
+</Info>
+
+## Multiple Servers
+
+You can connect multiple Discord servers to the same Modem organization:
+
+1. Complete setup for the first server
+2. Go back to **Settings** → **Integrations** → **Discord**
+3. Click **Add Another Server**
+4. Repeat the authorization process
+
+Each server's data is tracked separately but can be searched together.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Bot isn't capturing messages">
+    - Verify the bot has been added to your server
+    - Check that the channel is selected in Modem settings
+    - Ensure the bot has permission to view the channel (check channel permissions)
+    - Private channels need explicit bot access
+  </Accordion>
+  <Accordion title="Can't see some channels">
+    The bot can only see channels it has permission to access. Check:
+    - Channel-specific permission overrides
+    - Category permissions
+    - Role permissions for the Modem bot
+  </Accordion>
+  <Accordion title="Missing user information">
+    Discord doesn't expose user email addresses through the API. Participant profiles for Discord users will include username and display name, but not email.
+  </Accordion>
+</AccordionGroup>
+
+## Disconnecting
+
+To disconnect Discord:
+
+1. Go to **Settings** → **Integrations** → **Discord**
+2. Click **Disconnect** next to the server
+
+To fully remove the bot:
+1. Go to your Discord server settings
+2. Navigate to **Integrations** → **Bots**
+3. Find Modem and click **Remove**
+
+Historical data remains in Modem after disconnection.

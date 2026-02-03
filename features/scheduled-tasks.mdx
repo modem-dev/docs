@@ -1,0 +1,252 @@
+---
+title: "Scheduled Tasks"
+description: "Automate workflows and regular operations"
+---
+
+Scheduled tasks let you automate recurring operations in Modem, from weekly digests to automated issue triage.
+
+## What Are Scheduled Tasks?
+
+Scheduled tasks are automated workflows that run on a schedule you define. They can:
+
+- Generate and deliver feedback summaries
+- Monitor for specific patterns or thresholds
+- Sync data with external systems
+- Trigger alerts based on conditions
+
+## Common Use Cases
+
+### Weekly Feedback Digest
+
+Get a summary of the week's feedback delivered to Slack every Monday:
+
+- Top bug reports
+- Trending feature requests
+- Notable praise and complaints
+- Key metrics changes
+
+### Daily Bug Monitoring
+
+Check for new critical issues every morning:
+
+- New bug reports in the last 24 hours
+- High-volume topics gaining traction
+- Unresolved issues from priority customers
+
+### Monthly Reports
+
+Generate comprehensive monthly summaries:
+
+- Feedback volume trends
+- Category breakdowns
+- Top participants and companies
+- Topic evolution over time
+
+### Threshold Alerts
+
+Get notified when patterns emerge:
+
+- Spike in complaints (e.g., 5x normal volume)
+- Multiple reports of the same issue
+- Negative sentiment from key accounts
+
+## Setting Up Scheduled Tasks
+
+<Steps>
+  <Step title="Navigate to Scheduled Tasks">
+    Go to **Settings** → **Scheduled Tasks** in your Modem dashboard.
+  </Step>
+  <Step title="Create a new task">
+    Click **New Task** and choose a template or start from scratch.
+  </Step>
+  <Step title="Configure the schedule">
+    Set when and how often the task should run:
+    - Specific times (e.g., 9 AM Monday)
+    - Intervals (e.g., every 24 hours)
+    - Cron expressions for advanced scheduling
+  </Step>
+  <Step title="Define the action">
+    Specify what the task should do:
+    - Query type (digest, alert, sync)
+    - Filters (time range, sources, categories)
+    - Delivery destination (Slack, email)
+  </Step>
+  <Step title="Activate">
+    Enable the task. It will run automatically on schedule.
+  </Step>
+</Steps>
+
+## Task Templates
+
+Modem provides templates for common scheduled tasks:
+
+### Weekly Digest
+
+**Schedule:** Every Monday at 9 AM
+
+**Output:**
+- Summary of last week's feedback
+- Top 5 topics by activity
+- Feedback category breakdown
+- Notable trends
+
+**Delivery:** Slack channel or email
+
+### Daily Standup Report
+
+**Schedule:** Every weekday at 8 AM
+
+**Output:**
+- New issues in the last 24 hours
+- Active discussions requiring attention
+- Unresolved bugs by age
+
+**Delivery:** Slack channel
+
+### Customer Health Check
+
+**Schedule:** Every Friday at 5 PM
+
+**Output:**
+- Feedback from key accounts
+- Sentiment changes
+- Unresolved issues by customer
+
+**Delivery:** Email to customer success team
+
+## Customizing Tasks
+
+### Filters
+
+Narrow what the task analyzes:
+
+| Filter | Example |
+|--------|---------|
+| Time range | Last 7 days, last 24 hours |
+| Sources | Slack only, Discord + GitHub |
+| Categories | Bug reports only |
+| Participants | Enterprise customers |
+| Keywords | Mentions of "pricing" |
+
+### Output Format
+
+Control how results are presented:
+
+- **Summary** — AI-generated overview
+- **List** — Itemized topics or messages
+- **Metrics** — Numbers and charts
+- **Full** — Detailed breakdown with links
+
+### Delivery Options
+
+Where results are sent:
+
+- **Slack** — Post to a channel or DM
+- **Email** — Send to specified addresses
+- **Webhook** — POST to an endpoint
+- **Dashboard** — Store for viewing in Modem
+
+## Managing Tasks
+
+### Viewing Task History
+
+See when tasks ran and what they produced:
+
+1. Go to **Scheduled Tasks**
+2. Click on a task
+3. View **Run History**
+
+Each run shows:
+- When it executed
+- What was produced
+- Delivery status
+- Any errors
+
+### Editing Tasks
+
+Modify a task's schedule or configuration:
+
+1. Go to **Scheduled Tasks**
+2. Click **Edit** on the task
+3. Make changes
+4. Save
+
+Changes take effect for the next scheduled run.
+
+### Pausing Tasks
+
+Temporarily disable a task:
+
+1. Toggle the task to **Disabled**
+2. The task won't run until re-enabled
+3. Re-enable anytime
+
+### Deleting Tasks
+
+Remove a task permanently:
+
+1. Click **Delete** on the task
+2. Confirm deletion
+3. Historical runs are preserved for audit
+
+## Advanced: Custom Queries
+
+For power users, define custom queries using the Agent's capabilities:
+
+```
+Summarize all bug reports from enterprise customers
+in the last week, grouped by severity, and highlight
+any that mention "data loss" or "security"
+```
+
+The scheduled task will run this query and deliver results on schedule.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Task didn't run">
+    - Check if the task is enabled
+    - Verify the schedule configuration
+    - Look at run history for errors
+    - Ensure delivery destination is configured
+  </Accordion>
+  <Accordion title="Results are empty">
+    - Check filters—they may be too restrictive
+    - Verify data exists for the time range
+    - Ensure integrations are connected and syncing
+  </Accordion>
+  <Accordion title="Delivery failed">
+    - For Slack: Verify bot is in the channel
+    - For email: Check addresses are valid
+    - For webhooks: Verify endpoint is accessible
+    - Check delivery logs for specific errors
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start with templates">
+    Templates are optimized for common use cases. Customize from there rather than building from scratch.
+  </Accordion>
+  <Accordion title="Match schedule to value">
+    Daily digests work for active channels. Weekly is enough for lower-volume sources. Don't create noise with too-frequent reports.
+  </Accordion>
+  <Accordion title="Route to the right audience">
+    Send bug summaries to engineering, feature requests to product, customer sentiment to success teams.
+  </Accordion>
+  <Accordion title="Review and iterate">
+    Check that scheduled reports are being used. Adjust content and frequency based on feedback from your team.
+  </Accordion>
+</AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="The Modem Agent" icon="robot" href="/features/agent">
+    The same AI powers scheduled queries.
+  </Card>
+  <Card title="Slack Integration" icon="slack" href="/integrations/slack">
+    Deliver scheduled reports to Slack.
+  </Card>
+</CardGroup>

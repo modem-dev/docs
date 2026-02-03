@@ -1,0 +1,129 @@
+---
+title: "Security & Privacy"
+description: "How Modem protects your data"
+---
+
+Modem is built with security at its core. We maintain SOC 2 Type II compliance and follow industry best practices to protect your data.
+
+<Info>
+  Full policy documents are available in our [Trust Center](https://trust.modem.dev). This page provides a summary of key security and privacy practices.
+</Info>
+
+## Certifications & Compliance
+
+| Standard | Status |
+|----------|--------|
+| SOC 2 Type II | Compliant |
+| GDPR | Compliant |
+
+## Frequently Asked Questions
+
+### How is my data protected?
+
+**Encryption at rest and in transit.** All customer data is encrypted when stored and when transmitted over the internet using industry-standard encryption (TLS 1.2+). This includes messages, user profiles, and any files processed by Modem.
+
+**Access controls.** We enforce the principle of least privilege—employees only access data required for their specific job function. All access to production systems requires multi-factor authentication.
+
+**Regular security assessments.** We conduct quarterly vulnerability scans on public-facing systems and annual penetration testing by independent security firms.
+
+### Who has access to my data?
+
+**Limited employee access.** Only authorized Modem employees with a documented business need can access customer data. Access is logged and audited.
+
+**No third-party data sharing.** We do not sell or share your data with third parties for their own purposes. Data is only shared with service providers necessary to operate Modem (see subprocessors below).
+
+**Quarterly access reviews.** We review all employee access permissions quarterly to ensure they remain appropriate. When employees leave, access is revoked within 2 business days.
+
+### Where is my data stored?
+
+**Cloud infrastructure.** Modem runs on Cloudflare's global network with data stored in secure, SOC 2 compliant data centers.
+
+**Geographic considerations.** For customers with specific data residency requirements, contact us to discuss available options.
+
+**Physical security.** Our data center providers maintain strict physical security controls including restricted access, surveillance systems, and environmental protections.
+
+### How long do you keep my data?
+
+**Retention policy.** We retain customer data for the duration of your subscription plus a reasonable period for account recovery. Upon contract termination or at your request, data is securely deleted.
+
+**Secure deletion.** When data is deleted, we use cryptographic destruction methods—not just soft deletion. This ensures data cannot be recovered.
+
+**Backups.** Backups are maintained for disaster recovery purposes and follow the same retention and deletion policies as primary data.
+
+### What happens if there's a security incident?
+
+**Incident response plan.** We maintain a documented incident response process that includes immediate containment, investigation, notification, and remediation steps.
+
+**Customer notification.** If we discover a security incident affecting your data, we will notify you as soon as reasonably possible with details about what happened and what we're doing about it.
+
+**Regulatory notification.** We comply with all applicable breach notification laws and will notify relevant authorities within required timeframes.
+
+**Post-incident review.** After any incident, we conduct a thorough review to understand root causes and implement measures to prevent recurrence.
+
+### What are my privacy rights?
+
+**GDPR rights.** If you're in the EU/EEA, you have the right to:
+- Access your personal data
+- Correct inaccurate data
+- Request deletion of your data
+- Restrict processing
+- Data portability
+- Object to processing
+
+**Exercising rights.** To exercise any privacy rights, email [support@modem.dev](mailto:support@modem.dev). We respond to requests within 30 days.
+
+**Data Processing Agreement.** Enterprise customers can request a DPA that documents our data processing commitments.
+
+### How do you manage third-party services?
+
+**Vendor assessment.** All service providers that access customer data must pass our security assessment before engagement. We evaluate their security practices, compliance certifications, and data handling procedures.
+
+**Contractual protections.** We maintain Data Processing Agreements with all subprocessors that handle customer data, ensuring they meet our security and privacy standards.
+
+**Ongoing monitoring.** Critical vendors are reviewed annually to ensure continued compliance with our security requirements.
+
+**Key subprocessors:**
+- Cloudflare (infrastructure, compute, storage)
+- OpenAI (AI processing for embeddings)
+- Anthropic (AI processing for analysis)
+- Resend (transactional email)
+- Stripe (payment processing)
+
+### What security certifications does Modem have?
+
+**SOC 2 Type II.** We have completed a SOC 2 Type II audit, which evaluates our security controls over an extended period. This report is available to customers under NDA.
+
+**Ongoing compliance.** We maintain continuous compliance through regular internal audits, automated security monitoring, and annual third-party assessments.
+
+### How can I report a security issue?
+
+**Security contact.** If you discover a potential security vulnerability, please report it to [security@modem.dev](mailto:security@modem.dev).
+
+**Responsible disclosure.** We appreciate responsible disclosure and will work with you to understand and address any issues. We do not take legal action against security researchers who act in good faith.
+
+## Security Best Practices for Your Team
+
+While Modem protects your data on our end, here are recommendations for your team:
+
+<AccordionGroup>
+  <Accordion title="Use strong authentication">
+    Enable two-factor authentication for all team members. Use unique, strong passwords or a password manager.
+  </Accordion>
+  <Accordion title="Review team access regularly">
+    Periodically review who has access to your Modem organization. Remove access for team members who no longer need it.
+  </Accordion>
+  <Accordion title="Be mindful of connected data">
+    Consider what channels you connect to Modem. Avoid connecting channels with highly sensitive information (credentials, PII, financial data).
+  </Accordion>
+  <Accordion title="Protect API tokens">
+    If you use MCP or API access, treat tokens like passwords. Don't commit them to code repositories or share them insecurely.
+  </Accordion>
+</AccordionGroup>
+
+## Contact
+
+For security questions or to request compliance documentation:
+
+- **Security issues:** [security@modem.dev](mailto:security@modem.dev)
+- **Privacy requests:** [support@modem.dev](mailto:support@modem.dev)
+- **Trust Center:** [trust.modem.dev](https://trust.modem.dev)

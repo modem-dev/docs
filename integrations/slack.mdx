@@ -1,0 +1,153 @@
+---
+title: "Slack"
+description: "Connect Slack workspaces to capture user feedback"
+---
+
+The Slack integration captures messages from your Slack workspaces, including support channels, community discussions, and customer communications.
+
+## What Gets Captured
+
+- **Messages** — All messages in selected channels
+- **Threads** — Full thread conversations with replies
+- **Reactions** — Emoji reactions on messages
+- **User Profiles** — Names, avatars, and email addresses (when available)
+- **Channel Metadata** — Channel names, descriptions, and types
+
+## Prerequisites
+
+- Admin access to the Slack workspace you want to connect (or permission to install apps)
+- A Modem organization
+
+## Setup
+
+<Steps>
+  <Step title="Start the connection">
+    Go to **Settings** → **Integrations** → **Slack** in your Modem dashboard and click **Connect Slack**.
+  </Step>
+  <Step title="Authorize Modem">
+    You'll be redirected to Slack to authorize the Modem app. Review the permissions and click **Allow**.
+
+    <Info>
+      Modem requests read access to messages in channels you specify. It does not post messages or modify your workspace.
+    </Info>
+  </Step>
+  <Step title="Select channels">
+    After authorization, select which channels Modem should monitor. You can choose:
+    - Public channels
+    - Private channels (if you have access)
+    - Shared channels (if applicable)
+  </Step>
+  <Step title="Start sync">
+    Click **Complete Setup**. Modem will begin syncing historical messages and listening for new ones.
+  </Step>
+</Steps>
+
+## Choosing Channels
+
+### Recommended Channels
+
+- `#support` or `#help` — Customer support requests
+- `#feedback` or `#suggestions` — Feature requests and ideas
+- `#bugs` or `#issues` — Bug reports
+- Community channels where users discuss your product
+
+### Channels to Avoid
+
+- Internal team channels (unless you want internal feedback analyzed)
+- Bot notification channels (high noise, low signal)
+- Channels with sensitive information
+
+<Tip>
+  You can always add or remove channels later from the integration settings.
+</Tip>
+
+## Historical Data
+
+When you first connect Slack, Modem syncs historical messages:
+
+- **Public channels** — Up to 90 days of history (Slack API limits)
+- **Private channels** — Up to 90 days (requires appropriate access)
+
+After initial sync, new messages are captured in real-time.
+
+## Slack Connect Channels
+
+If you use Slack Connect to communicate with customers or partners, Modem can capture those conversations too:
+
+1. Ensure the Modem app is installed in your workspace
+2. Select the Slack Connect channel during channel selection
+3. Modem will capture messages from all participants
+
+<Note>
+  Modem only captures messages in Slack Connect channels from your workspace's perspective. You cannot access messages in channels you're not part of.
+</Note>
+
+## Using Modem in Slack
+
+Beyond capturing messages, Modem provides interactive features in Slack:
+
+### Link Unfurling
+
+When you paste a Modem URL (topic, participant, etc.) in Slack, Modem automatically unfurls it with a preview.
+
+### @mention the Modem Bot
+
+You can @mention the Modem bot in channels to:
+- Ask questions about your feedback data
+- Get summaries of recent activity
+- Search for related topics
+
+<Info>
+  The Modem bot must be added to channels where you want to use @mentions.
+</Info>
+
+## Permissions Explained
+
+The Modem Slack app requests these permissions:
+
+| Permission | Why It's Needed |
+|------------|-----------------|
+| `channels:history` | Read messages in public channels |
+| `channels:read` | See channel list and metadata |
+| `groups:history` | Read messages in private channels |
+| `groups:read` | See private channel list |
+| `users:read` | Get user profile information |
+| `users:read.email` | Get user email addresses |
+| `reactions:read` | See emoji reactions |
+| `links:read` | Enable link unfurling |
+
+Modem does **not** request permissions to:
+- Post messages on your behalf
+- Modify channels or users
+- Access direct messages
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Messages aren't appearing">
+    - Verify the channel is selected in integration settings
+    - Check that the Modem app is installed in the workspace
+    - For private channels, ensure Modem has been added to the channel
+    - Allow a few minutes for initial sync to complete
+  </Accordion>
+  <Accordion title="Historical messages are missing">
+    Slack API limits historical access to approximately 90 days for free workspaces and 10,000 messages for paid workspaces. Modem can only access what Slack makes available.
+  </Accordion>
+  <Accordion title="User emails aren't showing">
+    User email visibility depends on workspace settings. If your workspace restricts email visibility, Modem won't be able to access them.
+  </Accordion>
+</AccordionGroup>
+
+## Disconnecting
+
+To disconnect Slack:
+
+1. Go to **Settings** → **Integrations** → **Slack**
+2. Click **Disconnect**
+
+This stops new data from being captured. Historical data remains in Modem.
+
+To fully remove Modem from your Slack workspace:
+1. Go to your Slack workspace settings
+2. Navigate to **Apps**
+3. Find Modem and click **Remove**

@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Modem",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#44BDA3",
+    "light": "#5FCDB3",
+    "dark": "#3AA78E"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -14,55 +14,73 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
               "index",
               "quickstart",
-              "development"
+              "core-concepts",
+              "use-cases"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Understanding Your Data",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "guides/topics",
+              "guides/participants",
+              "guides/feedback-categories"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Integrations",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Overview",
             "pages": [
-              "api-reference/introduction"
+              "integrations/overview"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Data Sources",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "integrations/slack",
+              "integrations/discord",
+              "integrations/github",
+              "integrations/linear",
+              "integrations/email"
+            ]
+          },
+          {
+            "group": "Extensibility",
+            "pages": [
+              "integrations/mcp"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Features",
+        "groups": [
+          {
+            "group": "AI Capabilities",
+            "pages": [
+              "features/ai-analysis",
+              "features/technical-crm",
+              "features/agent"
+            ]
+          },
+          {
+            "group": "Automation",
+            "pages": [
+              "features/scheduled-tasks"
+            ]
+          },
+          {
+            "group": "Account",
+            "pages": [
+              "features/team-management",
+              "features/security-privacy"
             ]
           }
         ]
@@ -71,14 +89,9 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Dashboard",
+          "href": "https://app.modem.dev",
+          "icon": "gauge"
         }
       ]
     }
@@ -91,32 +104,20 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@modem.dev"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Get Started",
+      "href": "https://app.modem.dev"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/modemdev",
+      "github": "https://github.com/modem-dev",
+      "discord": "https://discord.gg/modem"
     }
   }
 }

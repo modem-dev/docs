@@ -1,0 +1,136 @@
+---
+title: "Feedback Categories"
+description: "How Modem automatically classifies user feedback"
+---
+
+Modem automatically categorizes messages into feedback types, helping you quickly understand the nature of user communications without manual tagging.
+
+## Feedback Types
+
+Modem classifies messages into these categories:
+
+### Bug Report
+
+Something isn't working as expected. Users are reporting errors, broken functionality, or unexpected behavior.
+
+**Examples:**
+- "The export button doesn't work on Safari"
+- "Getting a 500 error when I try to save"
+- "The chart shows wrong data after filtering"
+
+### Feature Request
+
+Users suggesting new functionality or improvements to existing features.
+
+**Examples:**
+- "Would be great to have keyboard shortcuts"
+- "Can you add dark mode support?"
+- "It would help if we could export to CSV"
+
+### Question
+
+Users seeking help, clarification, or guidance on how to use the product.
+
+**Examples:**
+- "How do I reset my API key?"
+- "What's the difference between these two options?"
+- "Is there a way to bulk import?"
+
+### Complaint
+
+Users expressing frustration, dissatisfaction, or negative sentiment without necessarily reporting a specific bug.
+
+**Examples:**
+- "This is so slow and frustrating"
+- "The new UI is confusing"
+- "I've been waiting for this fix for months"
+
+### Praise
+
+Positive feedback, appreciation, or compliments about the product or team.
+
+**Examples:**
+- "Love the new dashboard design!"
+- "This feature saved me hours of work"
+- "Great support, thanks for the quick response"
+
+## How Classification Works
+
+Modem uses AI to analyze message content and context:
+
+1. **Content Analysis** — The text of the message is analyzed for sentiment, intent, and keywords
+2. **Context Signals** — Channel type, thread context, and conversation history provide additional signals
+3. **Confidence Scoring** — Each classification includes a confidence score
+
+<Info>
+  Classification happens automatically as messages are ingested. There's no manual setup required.
+</Info>
+
+## Using Feedback Categories
+
+### Filtering by Category
+
+Use the category filter in the **Feedback** view to see messages of a specific type:
+
+- View all bug reports to understand reliability issues
+- Browse feature requests to inform your roadmap
+- Check complaints to identify user pain points
+- Review praise to understand what's working well
+
+### Dashboard Analytics
+
+The dashboard shows feedback distribution over time:
+
+- Are bug reports increasing? You might have a quality issue
+- Spike in feature requests around a topic? Users want something specific
+- Complaints trending up? Time to investigate
+
+### Combining with Topics
+
+Categories work alongside topics to give you a complete picture:
+
+| Use Case | How to Find It |
+|----------|----------------|
+| Bugs about a specific feature | Filter topics by "bug report" category |
+| Most requested features | Filter topics by "feature request" and sort by message count |
+| Pain points for a customer | View participant profile, filter by "complaint" |
+
+## Classification Accuracy
+
+AI classification isn't perfect. Some messages may be:
+
+- **Ambiguous** — "This doesn't work the way I expected" could be a bug report or a complaint
+- **Multi-category** — "The export is broken and you really need to add CSV support" contains both a bug and a feature request
+- **Contextual** — Sarcasm or complex context can lead to misclassification
+
+<Tip>
+  When a message contains multiple feedback types, Modem classifies it based on the primary intent. The full message is always available for context.
+</Tip>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Monitor bug report trends">
+    Track the volume of bug reports over time. Increases after releases can indicate quality issues. Decreases after fixes confirm resolution.
+  </Accordion>
+  <Accordion title="Prioritize by category + volume">
+    A feature request mentioned once is noise. A feature request from 50 users across 3 months is signal. Use category filters with topic volume to prioritize.
+  </Accordion>
+  <Accordion title="Don't ignore praise">
+    Praise tells you what's working. When users love a feature, that's signal about what to preserve and expand. It also identifies potential advocates.
+  </Accordion>
+  <Accordion title="Investigate complaint spikes">
+    Sudden increases in complaints often indicate breaking changes, performance issues, or unmet expectations. Investigate promptly.
+  </Accordion>
+</AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Topics" icon="layer-group" href="/guides/topics">
+    See how feedback is organized into topics.
+  </Card>
+  <Card title="AI Analysis" icon="brain" href="/features/ai-analysis">
+    Learn more about Modem's AI capabilities.
+  </Card>
+</CardGroup>

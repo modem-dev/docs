@@ -1,0 +1,106 @@
+---
+title: "Topics"
+description: "How Modem discovers and organizes conversation themes"
+---
+
+Topics are AI-discovered conversation themes that group related messages across your data sources. They're the primary way Modem helps you understand what users are talking about.
+
+## How Topics Are Created
+
+Modem uses a combination of semantic analysis and conversation detection to create topics:
+
+1. **Message Embedding** — Each message is converted into a vector representation that captures its meaning
+2. **Similarity Matching** — New messages are compared against existing topics to find semantic matches
+3. **Conversation Segmentation** — Related messages in sequence are grouped together as a conversation
+4. **Topic Generation** — When a conversation doesn't fit existing topics, a new topic is created
+
+<Info>
+  Topics are generated automatically. You don't need to tag, label, or categorize messages yourself.
+</Info>
+
+## Anatomy of a Topic
+
+Each topic includes:
+
+| Field | Description |
+|-------|-------------|
+| **Title** | AI-generated summary of the topic theme |
+| **Summary** | Brief description of what the topic covers |
+| **Groups** | Conversation segments within the topic |
+| **Messages** | Individual messages that belong to this topic |
+| **Participants** | Users who contributed to discussions in this topic |
+| **Confidence** | How strongly the messages match this topic |
+| **Keywords** | Extracted terms that define this topic |
+
+## Topic Groups
+
+A topic can contain multiple **groups**—distinct conversations that share the same theme but happened at different times or in different contexts.
+
+For example, a topic about "API rate limiting" might have:
+
+- **Group 1**: Initial discussion about rate limit errors (January, Slack #support)
+- **Group 2**: Feature request for rate limit headers (March, Discord #suggestions)
+- **Group 3**: Bug report about incorrect 429 responses (May, GitHub Issues)
+
+Groups help you see the evolution of a topic over time.
+
+## Working with Topics
+
+### Browsing Topics
+
+Navigate to **Topics** in your dashboard to see all discovered topics. Topics are sorted by recent activity by default.
+
+Use filters to narrow down:
+- **Time range** — Topics with activity in a specific period
+- **Source** — Topics from specific channels or platforms
+- **Feedback type** — Topics containing bug reports, feature requests, etc.
+
+### Searching Topics
+
+Use the search bar to find topics by keyword or phrase. The search uses semantic matching, so you'll find related topics even if they don't contain your exact search terms.
+
+<Tip>
+  Searching for "authentication problems" will find topics about "login issues," "OAuth errors," and "sign-in bugs" due to semantic similarity.
+</Tip>
+
+### Topic Details
+
+Click on a topic to see:
+- All messages in the topic, organized by group
+- Timeline of when messages were added
+- Participants involved
+- Source channels and platforms
+
+## Topic Quality
+
+Modem assigns a confidence score to each topic based on:
+- How semantically similar the grouped messages are
+- Whether the messages form coherent conversations
+- The distinctiveness of the topic from other topics
+
+Higher confidence topics have stronger thematic coherence. Lower confidence topics may need review—the messages might belong to separate topics, or the topic boundaries might need adjustment.
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start with high-activity channels">
+    Topics are more meaningful when there's enough data. Start by connecting your busiest user-facing channels.
+  </Accordion>
+  <Accordion title="Review new topics regularly">
+    Check the Topics view periodically to spot emerging themes. New topics often indicate changing user needs or new pain points.
+  </Accordion>
+  <Accordion title="Use topics to inform roadmap">
+    Topics with many participants and messages across time indicate persistent user needs. Use this signal for prioritization.
+  </Accordion>
+</AccordionGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Feedback Categories" icon="tags" href="/guides/feedback-categories">
+    How messages within topics are categorized by type.
+  </Card>
+  <Card title="The Modem Agent" icon="robot" href="/features/agent">
+    Find topics and messages using natural language queries.
+  </Card>
+</CardGroup>

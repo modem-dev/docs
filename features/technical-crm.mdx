@@ -1,0 +1,272 @@
+---
+title: "Technical CRM"
+description: "Unified contact and company profiles across all your data sources"
+---
+
+Modem includes a technical CRM that automatically builds and maintains profiles for the people and companies you interact with across your connected platforms.
+
+## Overview
+
+As messages flow in from Slack, Discord, GitHub, and other sources, Modem automatically creates **Person** and **Company** records. These records are enriched with profile data, linked across platforms, and connected to their conversation history.
+
+<Info>
+  Person records are created automatically when messages are ingested. You don't need to manually add contacts.
+</Info>
+
+## People
+
+### Automatic Person Creation
+
+When a message arrives from a new author, Modem:
+
+1. Checks if this platform identity (Slack user ID, GitHub username, etc.) already exists
+2. Attempts to match by email address to avoid duplicates
+3. Creates or links the identity to a Person record
+4. Stores any email addresses provided by the platform
+
+This happens automatically—every author who sends a message gets a Person record.
+
+### Person Profiles
+
+Each person has a rich profile:
+
+| Field | Description |
+|-------|-------------|
+| **Display Name** | Name shown across the platform |
+| **Avatar** | Profile picture |
+| **Emails** | One or more email addresses (one marked primary) |
+| **Description** | Bio or notes about the person |
+| **Job Title** | Current role |
+| **Company** | Associated company (with employment history) |
+| **VIP Status** | Flag for high-priority contacts |
+
+### Social Connections
+
+Track professional links for each person:
+
+- LinkedIn profile
+- GitHub username
+- Twitter/X handle
+- Personal website
+- Phone number
+
+### Platform Identities
+
+A single Person can have identities across multiple platforms:
+
+```
+Jane Smith (Person)
+├── jane@acme.com (Slack)
+├── janesmith (GitHub)
+└── jane#1234 (Discord)
+```
+
+When Jane sends a message on any platform, it's attributed to the same Person record. This gives you a complete view of their interactions across all channels.
+
+### Expertise Tags
+
+After enrichment, persons can have:
+
+- **Ecosystem Tags** — Technologies they work with (React, Kubernetes, Python)
+- **Expertise Tags** — Skills and specializations (Frontend Development, DevOps, API Design)
+
+These help you find the right people to talk to about specific topics.
+
+## Companies
+
+### Company Records
+
+Companies represent organizations your users belong to:
+
+| Field | Description |
+|-------|-------------|
+| **Name** | Company name |
+| **Logo** | Company logo |
+| **Domains** | Email domains (acme.com, acme.io) |
+| **Industry** | Industry classification |
+| **Size** | Employee count range |
+| **Website** | Company URL |
+| **VIP Status** | Flag for key accounts |
+
+### Social Connections
+
+Track company presence:
+
+- LinkedIn company page
+- GitHub organization
+- Twitter/X account
+- Contact email and phone
+
+### Company Domains
+
+Companies can have multiple email domains:
+
+```
+Acme Corporation
+├── acme.com (primary)
+├── acme.io
+└── acme-corp.com
+```
+
+When a person's email matches a company domain, they can be linked to that company.
+
+## Person-Company Relationships
+
+People and companies have a many-to-many relationship:
+
+- A person can work at multiple companies (current and past)
+- A company has multiple employees
+- Each relationship includes role, start date, and end date
+
+### Employment History
+
+Track career progression:
+
+```
+Jane Smith
+├── Acme Corp (2022-present) - Senior Engineer
+└── StartupXYZ (2019-2022) - Engineer
+```
+
+This history is preserved when someone changes jobs—you don't lose the context of past relationships.
+
+## Enrichment
+
+Enrichment uses AI-powered web search to automatically discover information about people and companies.
+
+### How It Works
+
+1. Click **Enrich** on a person or company profile
+2. Modem searches the web using available context (name, email, company)
+3. AI extracts structured data from search results
+4. Profile fields are updated non-destructively
+
+<Tip>
+  Enrichment never overwrites existing data. If you've manually entered information, it's preserved.
+</Tip>
+
+### What Enrichment Discovers
+
+**For People:**
+- Full name and bio
+- LinkedIn, GitHub, Twitter profiles
+- Personal website
+- Job title
+- Ecosystem and expertise tags
+
+**For Companies:**
+- Description
+- Website and social profiles
+- Industry classification
+- Company size
+- Headquarters location
+
+### Confidence Scores
+
+Each enrichment includes a confidence score (0-1):
+
+- **High confidence (≥0.7)** — Data is reliable
+- **Lower confidence** — May benefit from manual review
+
+## Merging Duplicates
+
+When duplicate Person or Company records exist, they can be merged:
+
+1. Select the source record (will be merged away)
+2. Select the target record (will receive the data)
+3. All identities, emails, and relationships transfer to the target
+4. The source record is marked as merged
+
+### What Transfers
+
+- All platform identities
+- All email addresses
+- Company associations
+- GitHub connections
+
+### Audit Trail
+
+Merges are logged and can be reverted if needed. The merge history shows:
+- Who performed the merge
+- When it happened
+- What records were combined
+
+## Change History
+
+All changes to Person and Company records are automatically tracked:
+
+- **What changed** — Before and after values
+- **Who changed it** — User, system, or AI agent
+- **When** — Timestamp of the change
+
+This audit trail helps you understand how records evolved over time.
+
+## Working with the CRM
+
+### Browsing People
+
+Navigate to **People** to see all contacts:
+
+- **Search** by name, email, or company
+- **Filter** by VIP status, company, or activity
+- **Sort** by recent activity, name, or creation date
+
+Click on a person to see their full profile, message history, and topics they've participated in.
+
+### Browsing Companies
+
+Navigate to **Companies** to see all organizations:
+
+- **Search** by name or domain
+- **Filter** by VIP status or size
+- **View** associated people and their activity
+
+### VIP Flagging
+
+Mark important contacts and accounts as VIP:
+
+- VIP people appear highlighted in lists
+- VIP companies help prioritize their employees' feedback
+- Use VIP status to focus on key relationships
+
+## Use Cases
+
+### Understanding Your Users
+
+See the complete picture for any user:
+- Every message they've sent across all platforms
+- Topics they've discussed
+- Their company and role
+- How long they've been engaged
+
+### Account-Level Insights
+
+Aggregate feedback by company:
+- What are Acme's engineers complaining about?
+- Which companies are most engaged?
+- What topics does this account care about?
+
+### Finding Experts
+
+Use expertise tags to find the right people:
+- Who in our community knows about Kubernetes?
+- Which users work with React?
+- Find people with specific technical backgrounds
+
+### Relationship Continuity
+
+When someone changes companies:
+- Their Person record persists
+- Conversation history is preserved
+- You maintain the relationship context
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Participants" icon="users" href="/guides/participants">
+    How participants connect to conversations and topics.
+  </Card>
+  <Card title="AI-Powered Analysis" icon="brain" href="/features/ai-analysis">
+    How AI powers enrichment and analysis.
+  </Card>
+</CardGroup>

@@ -1,0 +1,213 @@
+---
+title: "MCP (Model Context Protocol)"
+description: "Access Modem from your AI tools via MCP"
+---
+
+Modem provides an MCP server that lets you access your feedback data from AI-powered development tools like Claude Desktop, Cursor, and other MCP-compatible clients.
+
+## What is MCP?
+
+The Model Context Protocol (MCP) is an open standard that allows AI assistants to connect to external data sources and tools. By connecting your AI tools to Modem's MCP server, you can:
+
+- Query your feedback data from within your IDE
+- Ask questions about users and topics without leaving your workflow
+- Search across all your connected sources using natural language
+
+<Info>
+  MCP lets you bring Modem's capabilities into the tools you already use, rather than switching to the Modem dashboard.
+</Info>
+
+## Supported Clients
+
+Modem's MCP server works with any MCP-compatible client:
+
+- **Claude Desktop** — Anthropic's desktop app
+- **Cursor** — AI-powered code editor
+- **Continue** — Open-source AI coding assistant
+- **Other MCP clients** — Any tool implementing the MCP specification
+
+## Setup
+
+### Get Your MCP Credentials
+
+<Steps>
+  <Step title="Go to Settings">
+    In your Modem dashboard, navigate to **Settings** → **API & Integrations**.
+  </Step>
+  <Step title="Generate MCP credentials">
+    Click **Generate MCP Token**. You'll receive:
+    - Server URL
+    - API token
+  </Step>
+  <Step title="Keep credentials secure">
+    Store these securely. The token provides access to your organization's feedback data.
+  </Step>
+</Steps>
+
+### Configure Your Client
+
+Configuration varies by client. Here are examples for common tools:
+
+#### Claude Desktop
+
+Add to your Claude Desktop configuration file (`~/.claude/claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "modem": {
+      "command": "npx",
+      "args": ["-y", "@modem-dev/mcp-server"],
+      "env": {
+        "MODEM_API_TOKEN": "your-api-token"
+      }
+    }
+  }
+}
+```
+
+#### Cursor
+
+Add to your Cursor MCP settings:
+
+```json
+{
+  "modem": {
+    "command": "npx",
+    "args": ["-y", "@modem-dev/mcp-server"],
+    "env": {
+      "MODEM_API_TOKEN": "your-api-token"
+    }
+  }
+}
+```
+
+<Tip>
+  After configuring, restart your client for changes to take effect.
+</Tip>
+
+## Available Tools
+
+Once connected, you can use these capabilities from your AI client:
+
+### Search Feedback
+
+Search across all your connected sources:
+
+> "Search Modem for authentication issues"
+>
+> "Find feedback about the new pricing from enterprise customers"
+
+### Query Topics
+
+Explore discovered topics:
+
+> "What are the trending topics in Modem this week?"
+>
+> "Show me topics related to mobile performance"
+
+### Look Up Participants
+
+Find information about users:
+
+> "Look up feedback from jane@acme.com in Modem"
+>
+> "What has Acme Corp been saying about our product?"
+
+### Get Summaries
+
+Generate summaries of feedback:
+
+> "Summarize bug reports from the last week in Modem"
+>
+> "What are the top feature requests in Modem?"
+
+## Example Usage
+
+### In Claude Desktop
+
+```
+You: What are users complaining about in Modem?
+
+Claude: [Queries Modem MCP server]
+
+Based on your Modem data, here are the top complaints from the last 7 days:
+
+1. **Export performance** (12 mentions) - Users report exports timing out for large datasets
+2. **Mobile app stability** (8 mentions) - Crashes on Android 14 devices
+3. **API rate limits** (5 mentions) - Requests for higher limits or better error messages
+
+The export issue appears most urgent with multiple enterprise customers affected.
+```
+
+### In Cursor
+
+While coding, you can ask about related feedback:
+
+```
+You: Are there any bug reports about the PaymentService in Modem?
+
+Cursor: [Queries Modem MCP server]
+
+I found 3 relevant bug reports:
+- "Payment webhook failing silently" (2 days ago, Slack #support)
+- "Double charges on retry" (5 days ago, GitHub issue #423)
+- "Currency conversion wrong for EUR" (1 week ago, Discord)
+
+The webhook issue might be related to the code you're working on.
+```
+
+## Permissions
+
+The MCP token inherits your user permissions:
+
+- Access to all data in your organization
+- Read-only access (cannot modify data via MCP)
+- Subject to the same data visibility rules as the dashboard
+
+<Warning>
+  Treat your MCP token like a password. Anyone with the token can access your organization's feedback data.
+</Warning>
+
+### Token Management
+
+- **Regenerate** — If compromised, regenerate the token in Settings
+- **Revoke** — Delete the token to disable MCP access
+- **Multiple tokens** — Create separate tokens for different tools if needed
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Connection failed">
+    - Verify your API token is correct
+    - Check that the token hasn't been revoked
+    - Ensure you have network access to Modem's servers
+    - Restart your MCP client after configuration changes
+  </Accordion>
+  <Accordion title="No results returned">
+    - Verify data exists in your Modem organization
+    - Check that integrations are connected and syncing
+    - Try a broader search query
+  </Accordion>
+  <Accordion title="Tool not appearing in client">
+    - Confirm the MCP server configuration is correct
+    - Check client logs for connection errors
+    - Ensure the `@modem-dev/mcp-server` package is accessible
+  </Accordion>
+</AccordionGroup>
+
+## Resources
+
+- [MCP Specification](https://modelcontextprotocol.io) — Official protocol documentation
+- [Claude Desktop MCP Guide](https://docs.anthropic.com/claude/docs/mcp) — Anthropic's MCP documentation
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="The Modem Agent" icon="robot" href="/features/agent">
+    Use the Agent directly in the Modem dashboard.
+  </Card>
+  <Card title="AI-Powered Analysis" icon="brain" href="/features/ai-analysis">
+    The same AI capabilities power MCP queries.
+  </Card>
+</CardGroup>

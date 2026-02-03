@@ -1,0 +1,180 @@
+---
+title: "Linear"
+description: "Connect Linear to incorporate issue discussions and project feedback"
+---
+
+The Linear integration syncs issues and comments from your Linear workspace, helping you track feedback that flows through your issue tracker.
+
+## What Gets Captured
+
+- **Issues** — Issue titles, descriptions, and status
+- **Comments** — Discussion on issues
+- **Project Context** — Project and team associations
+- **User Profiles** — Linear user information
+- **Metadata** — Labels, priorities, and state changes
+
+## Prerequisites
+
+- Admin access to your Linear workspace
+- A Modem organization
+
+## Setup
+
+<Steps>
+  <Step title="Start the connection">
+    Go to **Settings** → **Integrations** → **Linear** in your Modem dashboard and click **Connect Linear**.
+  </Step>
+  <Step title="Authorize Modem">
+    You'll be redirected to Linear to authorize the connection. Review the permissions and click **Authorize**.
+  </Step>
+  <Step title="Select teams">
+    Choose which Linear teams to sync. You can select:
+    - All teams in your workspace
+    - Specific teams
+  </Step>
+  <Step title="Start sync">
+    Click **Complete Setup**. Modem will begin syncing issues and listening for updates.
+  </Step>
+</Steps>
+
+## Choosing Teams
+
+### Recommended
+
+- Teams that handle customer-reported issues
+- Product teams that track feature requests
+- Teams with external-facing work
+
+### Consider Carefully
+
+- Internal-only teams (HR, ops) unless you want that feedback
+- Archived or inactive teams
+
+<Tip>
+  Start with your main product team and expand based on what's valuable.
+</Tip>
+
+## What Modem Tracks
+
+### Issues
+
+Each Linear issue is tracked with:
+- Title and description
+- Current state (backlog, in progress, done, etc.)
+- Priority and labels
+- Team and project assignment
+- Assignee information
+
+### Comments
+
+Issue comments are captured as part of the conversation:
+- User who commented
+- Comment content
+- Timestamp
+- Any mentions or references
+
+### State Changes
+
+When issues move through your workflow:
+- State transitions are recorded
+- Completion status is tracked
+- Timeline of changes is preserved
+
+## Historical Data
+
+On initial connection, Modem syncs:
+- Active issues (not archived)
+- Recent completed issues
+- Comments on synced issues
+
+The depth of historical sync depends on workspace size and activity.
+
+## Permissions
+
+The Modem Linear integration requests:
+
+| Permission | Why It's Needed |
+|------------|-----------------|
+| Read issues | View issue content and metadata |
+| Read comments | Access discussion on issues |
+| Read users | Get user profile information |
+| Read teams | See team structure |
+
+Modem does **not** request permissions to:
+- Create or modify issues
+- Change issue state or assignments
+- Modify workspace settings
+
+<Info>
+  Modem operates in read-only mode. It cannot create or modify issues in Linear.
+</Info>
+
+## Connecting Feedback to Issues
+
+Linear issues often originate from feedback in other channels:
+
+**Common flow:**
+1. User reports bug in Slack or Discord
+2. Team creates Linear issue to track the fix
+3. Issue discussion happens in Linear
+4. Fix is deployed, issue is closed
+
+Modem can connect these by:
+- Linking participants across platforms (when identifiable)
+- Semantic matching between channel discussions and issue content
+- Tracking explicit references and links
+
+## Use Cases
+
+### Tracking Issue Resolution
+
+See which user-reported problems have been addressed:
+- Original feedback in Slack/Discord
+- Corresponding Linear issue
+- Resolution status
+
+### Understanding Issue Volume
+
+Analyze patterns in your issue tracker:
+- Types of issues being created
+- Teams with most activity
+- Time to resolution trends
+
+### Connecting Feedback to Roadmap
+
+Link feature requests from community channels to Linear issues:
+- See which requests became planned work
+- Track progress on user-requested features
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Issues not syncing">
+    - Verify the team is selected in integration settings
+    - Check that Modem is authorized in your Linear workspace
+    - Archived issues are not synced
+  </Accordion>
+  <Accordion title="Missing comments">
+    - Comments sync alongside their parent issues
+    - If the issue isn't synced, comments won't appear
+    - Very old comments may not be included in initial sync
+  </Accordion>
+  <Accordion title="User information missing">
+    - Linear doesn't expose email addresses through the API
+    - User profiles show Linear display names
+    - Cross-platform linking relies on other signals
+  </Accordion>
+</AccordionGroup>
+
+## Disconnecting
+
+To disconnect Linear:
+
+1. Go to **Settings** → **Integrations** → **Linear**
+2. Click **Disconnect**
+
+To revoke access from Linear's side:
+1. Go to Linear → Settings → API
+2. Find the Modem authorization and revoke it
+
+Historical data remains in Modem after disconnection.
