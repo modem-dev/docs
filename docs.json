@@ -35,8 +35,13 @@
           "integrations/discord",
           "integrations/github",
           "integrations/linear",
-          "integrations/email",
-          "integrations/mcp"
+          "integrations/email"
+        ]
+      },
+      {
+        "group": "Developers",
+        "pages": [
+          "developers/mcp"
         ]
       },
       {
